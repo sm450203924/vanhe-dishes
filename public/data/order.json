@@ -1,0 +1,38 @@
+{
+  "done": {
+    "item": [
+      {
+        "foodID": "1",
+        "quantity": 2
+      },
+      {
+        "foodID": "2",
+        "quantity": 1
+      },
+      {
+        "foodID": "4",
+        "quantity": 2
+      }
+    ]
+  },
+  "unpaid": {
+    "item": [
+      {
+        "foodID": "2",
+        "quantity": 1
+      },
+      {
+        "foodID": "6",
+        "quantity": 1
+      }
+    ]
+  },
+  "cancel": {
+    "item": [
+      {
+        "foodID": "5",
+        "quantity": 1
+      }
+    ]
+  }
+}

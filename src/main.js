@@ -1,22 +1,26 @@
 import Vue from 'vue'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-import 'mint-ui/lib/icons-extra.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import 'normalize.css/normalize.css'
+import { Swipe, SwipeItem, Tabbar, TabbarItem, Card, Lazyload,
+  GoodsAction,
+  GoodsActionIcon,
+  GoodsActionButton
+} from 'vant'
 
-/*
-import { Header, Tabbar, TabItem } from 'mint-ui'
+import './assets/style.scss'
 
-Vue.component(Header.name, Header)
-Vue.component(Tabbar.name, Tabbar)
-Vue.component(TabItem.name, TabItem)
-*/
+Vue
+  .use(GoodsAction)
+  .use(GoodsActionIcon)
+  .use(GoodsActionButton)
+Vue.use(Tabbar).use(TabbarItem).use(Card).use(Swipe).use(SwipeItem).use(Lazyload)
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
-Vue.use(MintUI)
 
 new Vue({
   router,

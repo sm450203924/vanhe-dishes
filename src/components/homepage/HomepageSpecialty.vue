@@ -1,10 +1,10 @@
 <template>
-    <article>myorder</article>
+
 </template>
 
 <script>
 export default {
-  name: 'MyOrderInformation'
+  name: 'HomepageSpecialty'
 }
 </script>
 

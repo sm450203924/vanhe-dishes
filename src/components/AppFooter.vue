@@ -1,23 +1,41 @@
 <template>
-  <footer>
-    <section>
-      <div class="hp-menu-item-content">
-        <img src="../../public/images/nav-order.png" alt="">
-        <span>在线订餐</span>
-      </div>
-    </section>
-    <section>
-      <div class="hp-menu-item-content">
-        <img src="../../public/images/nav-myorder.png" alt="">
-        <span>我的订单</span>
-      </div>
-    </section>
-  </footer>
+    <van-tabbar
+      v-model="active"
+      active-color="#da251d"
+    >
+      <van-tabbar-item name="homepage" icon="wap-home" to="/homepage">
+        首页
+      </van-tabbar-item>
+      <van-tabbar-item name="menu" icon="notes-o" to="/menu">
+        菜单
+      </van-tabbar-item>
+      <van-tabbar-item name="cart" icon="shopping-cart-o" to="/cart" info="0">
+        购物车
+      </van-tabbar-item>
+      <van-tabbar-item name="my-information" icon="user-o" to="/my-information">
+        我的
+      </van-tabbar-item>
+    </van-tabbar>
 </template>
 
 <script>
 export default {
-  name: 'AppFooter'
+  name: 'AppFooter',
+  props: {
+    activeItem: {
+      type: String,
+      require: true
+    }
+  },
+  data () {
+    return {
+      active: this.activeItem
+    }
+  },
+  created () {
+    // this.active = this.activeItem.toLowerCase()
+  }
+
 }
 </script>
 
@@ -44,8 +62,5 @@ export default {
       height: 14px;
       font-size: 14px;
     }
-  }
-  .hp-menu-item-content{
-
   }
 </style>
