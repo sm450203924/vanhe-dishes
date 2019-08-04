@@ -38,6 +38,16 @@ export default new Router({
       path: '/my-order',
       name: 'MyOrder',
       component: () => import('./views/MyOrder.vue')
+    },
+    {
+      path: '/check',
+      name: 'Check',
+      component: () => import('./views/Check.vue')
+    },
+    {
+      path: '/food-details',
+      name: 'FoodDetails',
+      component: () => import('./views/FoodDetails.vue')
     }
   ]
 })

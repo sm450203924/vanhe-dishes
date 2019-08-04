@@ -6,9 +6,9 @@
         <img src="../../public/images/logo.png" alt="万和烧卤">
       </header>
       <van-search
-        v-model="value"
+        v-model="keyword"
         placeholder="请输入搜索关键词"
-        show-action="true"
+        show-action
         shape="round"
         @search="onSearch"
         clearable
@@ -25,18 +25,15 @@
       </van-notice-bar>
       <HomepageNav/>
     </article>
-    <footer>
+<!--    <footer>
       <AppFooter :activeItem="url"/>
-    </footer>
+    </footer>-->
   </div>
 </template>
 
 <script>
 import { Swipe, SwipeItem, Search, NoticeBar, NavBar } from 'vant'
-import AppFooter from '../components/AppFooter'
 import HomepageNav from '../components/homepage/HomepageNav'
-import HomepageHotRecommend from '../components/homepage/HomepageHotRecommend'
-import HomepageSpecialty from '../components/homepage/HomepageSpecialty'
 
 export default {
   name: 'Homepage',
@@ -44,6 +41,7 @@ export default {
     return {
       url: 'homepage',
       title: '首页',
+      keyword: '',
       images: [
         './images/img_ssj.jpg',
         './images/img_bqj.jpg',
@@ -58,26 +56,20 @@ export default {
     [Search.name]: Search,
     [NoticeBar.name]: NoticeBar,
     [NavBar.name]: NavBar,
-    HomepageNav,
-    HomepageHotRecommend,
-    HomepageSpecialty,
-    AppFooter
+    HomepageNav
+  },
+  methods: {
+    onSearch () {
+      console.log('search')
+    }
   }
 }
 </script>
 
-<style lang="scss">
-  .nav-bar {
-    background-color: rgba(0, 0, 0, 0.76);
-    .van-nav-bar__title {
-      color: #fff;
-    }
-  }
-</style>
-
 <style lang="scss" scoped>
   article{
     padding-top:46px;
+    padding-bottom: 50px;
   }
   .logo-heading {
     background-color: #fff;

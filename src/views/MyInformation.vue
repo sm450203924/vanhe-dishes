@@ -15,7 +15,7 @@
         <van-cell icon="records" title="我的订单" is-link to="/my-order"/>
       </van-cell-group>
     </article>
-    <AppFooter :activeItem="url"/>
+    <!--<AppFooter :activeItem="url"/>-->
   </div>
 
 </template>
@@ -28,7 +28,6 @@
     name: 'MyOrderInformation',
     data() {
       return {
-        url: 'my-information',
         title: '我的'
       }
     },
@@ -41,18 +40,10 @@
   }
 </script>
 
-<style lang="scss">
-  .van-nav-bar {
-    background-color: rgba(0, 0, 0, 0.76);
-    .van-nav-bar__title {
-      color: #fff;
-    }
-  }
-</style>
-
 <style lang="scss" scoped>
   article {
     padding-top: 46px;
+    padding-bottom: 50px;
   }
 
   .vip-card {
