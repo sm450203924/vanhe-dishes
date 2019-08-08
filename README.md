@@ -12,7 +12,7 @@
 
 | **下单** | **我的订单** |
 |--|--|
-| ![下单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/search-detail.gif) | ![我的订单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/search-detail.gif) |
+| ![下单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/order.gif) | ![我的订单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/my-order.gif) |
 
 <br>
 
