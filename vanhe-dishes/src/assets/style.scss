@@ -1,0 +1,79 @@
+*{
+  font-family: "Microsoft YaHei UI"
+}
+body{
+  background-color: #fafafa;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+/*.van-nav-bar{
+  background-color: #da251d;
+}*/
+.van-nav-bar {
+  background-color: rgba(0, 0, 0, 0.76);
+  .van-nav-bar__title {
+    color: #fff;
+  }
+}
+
+.van-nav-bar {
+  background-color: rgba(0, 0, 0, 0.76);
+  .van-nav-bar__title {
+    color: #fff;
+  }
+}
+
+.van-nav-bar .van-icon {
+  color: #fff;
+}
+
+.cart-item{
+  padding-left: 15px;
+  background-color: #fff;
+  margin-top: 15px;
+}
+.cart{
+  span.van-checkbox__label{
+    width:100%;
+    display: block;
+  }
+}
+.van-card{
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+  /*font-size: 16px;*/
+}
+.van-card__origin-price{
+  /*font-size:13px;*/
+}
+.van-card__content{
+  padding-left: 10px;
+  min-height: 50px;
+}
+.van-button{
+  /*font-size: 18px;*/
+}
+.van-card__thumb{
+  padding:5px;
+  border: 1px solid #c8c9cc;
+  width: 50px;
+  height: 50px;
+}
+.van-card__title{
+  line-height: 32px;
+  /*font-size: 18px;*/
+  font-weight: 600;
+}
+.van-swipe-cell__right{
+  .van-button{
+    height: 100%;
+  }
+}
+
+.hidden{
+  display: none;
+}

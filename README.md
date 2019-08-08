@@ -1,29 +1,30 @@
-# vanhe-dishes
+# Vanhe Dishes
+一个订餐的小App，前端部分
 
-## Project setup
-```
-npm install
-```
+## 构建于 *Build With*
+- **前端框架** *Front End Framework*：Vue 2.6 全家桶
+- **脚手架工具** *Environment for Vue development*：Vue-cli 3.9
+- **UI 框架**    *UI Framework*：Vant
+- **CSS 扩展语言**    *CSS Extension*: SCSS
+- **Javascript**   : ES6、ES5
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 运行效果截图  *Screenshots*
 
-### Compiles and minifies for production
-```
-npm run build
-```
+| **下单** | **我的订单** |
+|--|--|
+| ![下单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/search-detail.gif) | ![我的订单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/search-detail.gif) |
 
-### Run your tests
-```
-npm run test
-```
+<br>
 
-### Lints and fixes files
-```
-npm run lint
-```
+| **搜索进入详情** | **搜索获取菜单** |
+|--|--|
+| ![搜索进入详情](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/search-detail.gif) | ![搜索获取菜单](https://github.com/sm450203924/vanhe-dishes/raw/master/screenshots/search-menu.gif) |
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 兼容性  *Compatibility*
+- IOS & Android
+
+## Installing：
+
+```shell  
+$ git clone https://github.com/sm450203924/vanhe-dishes.git
+```  
