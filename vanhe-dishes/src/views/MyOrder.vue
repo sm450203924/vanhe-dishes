@@ -4,94 +4,109 @@
       :title="title"
       left-arrow
       @click-left="back"
+      fixed
     />
-    <van-tabs v-model="activeName" swipeable>
-      <van-tab title="全部" name="all">
-        <div >
-        </div>
-        <van-card
-          v-for="(item) in foodOrder.all"
-          :key="item.orderID"
-          :price="item.price"
-          :title="item.name"
-          :thumb="item.picture"
-        >
-          <div slot="footer">
-            <div class="order-item-footer">
-              <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+    <article>
+      <van-tabs
+        v-model="activeTab"
+        swipeable
+        lazy-render>
+        <van-tab title="全部" name="all">
+          <van-list
+            v-model="loading"
+            :finished="finished"
+            finished-text="没有更多了"
+            @load="onLoad">
+          <van-card
+            v-for="(item) in foodOrder.all"
+            :key="item.orderID"
+            :price="item.price"
+            :title="item.name"
+            :thumb="item.picture"
+          >
+            <div slot="footer">
+              <div class="order-item-footer">
+                <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+              </div>
             </div>
-          </div>
-        </van-card>
-      </van-tab>
-      <van-tab title="已完成" name="done">
-        <van-card
-          v-for="(item) in foodOrder.done"
-          :key="item.orderID"
-          :price="item.price"
-          :title="item.name"
-          :thumb="item.picture"
-        >
-          <div slot="footer">
-            <div class="order-item-footer">
-              <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+          </van-card>
+          </van-list>
+        </van-tab>
+        <van-tab title="已完成" name="done">
+          <van-card
+            v-for="(item) in foodOrder.done"
+            :key="item.orderID"
+            :price="item.price"
+            :title="item.name"
+            :thumb="item.picture"
+          >
+            <div slot="footer">
+              <div class="order-item-footer">
+                <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+              </div>
             </div>
-          </div>
-        </van-card>
-      </van-tab>
-      <van-tab title="等待支付" name="unpaid">
-        <van-card
-          v-for="(item) in foodOrder.unpaid"
-          :key="item.orderID"
-          :price="item.price"
-          :title="item.name"
-          :thumb="item.picture"
-        >
-          <div slot="footer">
-            <div class="order-item-footer">
-              <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+          </van-card>
+        </van-tab>
+        <van-tab title="等待支付" name="unpaid">
+          <van-card
+            v-for="(item) in foodOrder.unpaid"
+            :key="item.orderID"
+            :price="item.price"
+            :title="item.name"
+            :thumb="item.picture"
+          >
+            <div slot="footer">
+              <div class="order-item-footer">
+                <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+              </div>
             </div>
-          </div>
-        </van-card>
-      </van-tab>
-      <van-tab title="已取消" name="cancel">
-        <van-card
-          v-for="(item) in foodOrder.cancel"
-          :key="item.orderID"
-          :price="item.price"
-          :title="item.name"
-          :thumb="item.picture"
-        >
-          <div slot="footer">
-            <div class="order-item-footer">
-              <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+          </van-card>
+        </van-tab>
+        <van-tab title="已取消" name="cancel">
+          <van-card
+            v-for="(item) in foodOrder.cancel"
+            :key="item.orderID"
+            :price="item.price"
+            :title="item.name"
+            :thumb="item.picture"
+          >
+            <div slot="footer">
+              <div class="order-item-footer">
+                <span>{{item.time}}</span><span>数量：×{{item.quantity}}</span>
+              </div>
             </div>
-          </div>
-        </van-card>
-      </van-tab>
-    </van-tabs>
+          </van-card>
+        </van-tab>
+      </van-tabs>
+    </article>
   </div>
 
 </template>
 
 <script>
-import { Tab, Tabs, NavBar, Card } from 'vant'
+import { Tab, Tabs, NavBar, Card, List } from 'vant'
 
 export default {
   name: 'MyOrder',
   data () {
     return {
       title: '我的订单',
-      activeName: 'a',
+      activeTab: 'all',
       foodOrder: {},
       food: [],
-      order: []
+      order: [],
+      loading: true,
+      finished: false,
+      error: false,
+      list: []
     }
   },
   components: {
     [Tab.name]: Tab,
     [Tabs.name]: Tabs,
     [NavBar.name]: NavBar,
-    [Card.name]: Card
+    [Card.name]: Card,
+    [List.name]: List
   },
   methods: {
     back () {
@@ -105,9 +120,8 @@ export default {
       return this.axios
         .get('./data/food.json')
     },
-    setOrderList () {
-      const _that = this
-      this.axios
+    getOrderList () {
+      return this.axios
         .all([this.getAllOrder(), this.getAllFood()])
         .then(this.axios.spread(function (orderResp, foodResp) {
           const orders = orderResp.data
@@ -121,11 +135,28 @@ export default {
               }
             }
           }
-          _that.foodOrder.all = foodOrder
-          _that.foodOrder.done = foodOrder.filter(item => item.orderStatus === 1)
-          _that.foodOrder.unpaid = foodOrder.filter(item => item.orderStatus === 2)
-          _that.foodOrder.cancel = foodOrder.filter(item => item.orderStatus === 3)
+          return foodOrder
         }))
+        .catch(function () {
+          console.log('error')
+        })
+    },
+    setOrderList () {
+      setTimeout(() => {
+        this.getOrderList().then((data) => {
+          let foodOrder = data
+          this.foodOrder.all = foodOrder
+          this.foodOrder.done = foodOrder.filter(item => item.orderStatus === 1)
+          this.foodOrder.unpaid = foodOrder.filter(item => item.orderStatus === 2)
+          this.foodOrder.cancel = foodOrder.filter(item => item.orderStatus === 3)
+          this.loading = false
+          this.finished = true
+        })
+      }, 500)
+    },
+    onLoad () {
+      // 异步更新数据，待更新
+      this.setOrderList()
     }
   },
   created () {
@@ -137,10 +168,15 @@ export default {
 <style>
   .van-nav-bar .van-icon {
     color: #fff;
+    z-index: 2;
   }
 </style>
 
 <style lang="scss" scoped>
+  article {
+    padding-top: 46px;
+    padding-bottom: 50px;
+  }
 .order-item-footer{
   display: flex;
   justify-content: space-between;

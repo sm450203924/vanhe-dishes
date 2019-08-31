@@ -3,12 +3,14 @@
     <div class="search-container" v-show="isShow">
       <form action="/">
         <van-search
-          v-model="keywords"
+          v-model.lazy="keywords"
           placeholder="请输入搜索关键词"
           show-action
           @cancel="cancelSearch"
           @search="onSearch"
           v-debounce="enterSearchKeywords"
+          v-focus
+          autofocus
         />
       </form>
       <van-cell-group>
@@ -91,6 +93,12 @@ export default {
           }, 300)
         })
       }
+    },
+    focus: {
+      update: function (el) {
+        // 聚焦元素
+        el.focus()
+      }
     }
   }
 }
@@ -123,5 +131,7 @@ export default {
   .v-leave-active {
     transition: all 0.2s ease;
   }
-
+  input[type="search"]{
+    line-height:24px;
+  }
 </style>

@@ -8,17 +8,6 @@
         v-model="active"
         active-color="#da251d"
       >
-        <!--        <van-tabbar-item
-             v-for="(item,index) in tabbar"
-                  :key="index"
-                  :name="item.name"
-                  :icon="item.icon"
-                  :to="item.to"
-                  :info="$store.getters.getAllQuantity"
-                  safe-area-inset-bottom="true"
-                  bind:change="onChange">
-                  {{item.text}}
-                </van-tabbar-item>-->
                 <van-tabbar-item name="homepage" icon="wap-home" to="/homepage">
                   首页
                 </van-tabbar-item>
@@ -32,7 +21,6 @@
                   我的
                 </van-tabbar-item>
       </van-tabbar>
-      <!--<AppFooter :activeItem="url"/>-->
     </footer>
   </div>
 </template>
@@ -51,56 +39,14 @@ export default {
     return {
       active: 'homepage',
       navText: '',
-      tabbar: [
+/*      tabbar: [
         { name: 'homepage', text: '首页', icon: 'wap-home', to: '/homepage', info: '' },
         { name: 'menu', text: '菜单', icon: 'notes-o', to: '/menu', info: '' },
         { name: 'cart', text: '购物车', icon: 'shopping-cart-o', to: '/cart', info: '0' },
         { name: 'my-information', text: '我的', icon: 'user-o', to: '/my-information', info: '' }
-      ]
+      ]*/
     }
-  },
-  watch: {
-    /*    selected (newval, oldval) {
-        switch (newval) {
-          case 'home':
-            this.$router.push({
-              path: '/homepage'
-            })
-            break
-          case 'menu':
-            this.$router.push({
-              path: '/menu'
-            })
-            break
-          case 'cart':
-            this.$router.push({
-              path: '/cart'
-            })
-            break
-          case 'my-information':
-            this.$router.push({
-              path: '/my-information'
-            })
-            break
-        }
-      } */
-  },
-  onChange (event) {
-    console.log(event.detail)
-  },
-  computed: {
-    /*    navText:function () {
-      switch (this.active){
-        case 'homepage':
-          return '首页'
-      }
-      case
-      if (this.active===) {
-          ;
-      }
-    } */
   }
-
 }
 </script>
 
@@ -145,9 +91,7 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*text-align: center;*/
     color: #2c3e50;
-    /*padding-top: 40px;*/
     overflow-x: hidden;
   }
 

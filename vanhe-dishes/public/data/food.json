@@ -47,5 +47,37 @@
     "describe": "放心肉，美味特制，便宜实惠",
     "originPrice": 18,
     "picture": "./images/img_zrg.jpg"
+  },
+  {
+    "foodID": 7,
+    "name": "鱼肉糕",
+    "price": 18,
+    "describe": "放心肉，美味特制，便宜实惠",
+    "originPrice": 18,
+    "picture": "./images/img_zrg.jpg"
+  },
+  {
+    "foodID": 8,
+    "name": "牛肉糕",
+    "price": 18,
+    "describe": "放心肉，美味特制，便宜实惠",
+    "originPrice": 18,
+    "picture": "./images/img_zrg.jpg"
+  },
+  {
+    "foodID": 9,
+    "name": "五花叉烧",
+    "price": 18,
+    "describe": "放心肉，美味特制，便宜实惠",
+    "originPrice": 18,
+    "picture": "./images/img_cs.jpg"
+  },
+  {
+    "foodID": 10,
+    "name": "卤鸭蛋",
+    "price": 18,
+    "describe": "放心肉，美味特制，便宜实惠",
+    "originPrice": 18,
+    "picture": "./images/img_lqy.jpg"
   }
 ]

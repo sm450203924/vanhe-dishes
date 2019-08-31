@@ -81,7 +81,7 @@ export default {
             }
           }
           this.cartItems = cartItems
-          console.log(cartItems)
+          // console.log(cartItems)
         })
     },
     removeFromCart (foodID, index) {

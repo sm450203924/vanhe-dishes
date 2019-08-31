@@ -12,7 +12,8 @@
         </div>
       </section>
       <van-cell-group>
-        <van-cell icon="records" title="我的订单" is-link to="/my-order"/>
+        <!--<van-cell icon="records" title="我的订单" is-link to="/my-order"/>-->
+        <van-cell icon="records" title="我的订单" @click="toMyOrder"/>
       </van-cell-group>
     </article>
     <!--<AppFooter :activeItem="url"/>-->
@@ -29,6 +30,13 @@
     data() {
       return {
         title: '我的'
+      }
+    },
+    methods:{
+      toMyOrder(){
+        this.$router.push({
+          path: '/my-order'
+        })
       }
     },
     components: {

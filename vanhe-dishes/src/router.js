@@ -30,11 +30,6 @@ export default new Router({
       component: () => import('./views/MyInformation.vue')
     },
     {
-      path: '/menu-detail',
-      name: 'MenuDetail',
-      component: () => import('./components/menu/MenuDetail.vue')
-    },
-    {
       path: '/my-order',
       name: 'MyOrder',
       component: () => import('./views/MyOrder.vue')

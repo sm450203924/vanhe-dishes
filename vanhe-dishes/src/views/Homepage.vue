@@ -5,7 +5,7 @@
       <header class="logo-heading">
         <img src="../../public/images/logo.png" alt="万和烧卤">
       </header>
-      <van-search placeholder="输入你想找的美食" @click="popSearch"/>
+      <van-search placeholder="输入你想找的美食" @click="popSearch" readonly/>
       <HomepageSearch :is-show="isShow" @cancelSearch='cancelSearch'/>
       <van-swipe :auto="5000" :duration="1000" :show-indicators="false">
         <van-swipe-item v-for="(image, index) in images" :key="index">
@@ -59,13 +59,15 @@ export default {
     },
     cancelSearch () {
       this.isShow = false
-      console.log('cs')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  input[type="search"]{
+     line-height: 24px;
+  }
   article{
     padding-top:46px;
     padding-bottom: 50px;

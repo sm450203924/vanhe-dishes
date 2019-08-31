@@ -80,7 +80,6 @@ export default {
           const food = response.data
           const targetFood = food.find(item => item.foodID === foodID)
           this.food = targetFood
-          console.log(targetFood)
         })
     },
     onClickCart () {
